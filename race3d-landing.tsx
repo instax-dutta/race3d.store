@@ -28,6 +28,7 @@ export default function LandingPage() {
   const [formResult, setFormResult] = useState("")
   const [isLoadingShowcase, setIsLoadingShowcase] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
+  const [isRedirecting, setIsRedirecting] = useState(false)
 
   const heroRef = useRef(null)
   const featuresRef = useRef(null)
@@ -95,6 +96,13 @@ export default function LandingPage() {
         event.target.reset()
         setOrderType("")
         setCustomDescription("")
+
+        // If brochure was selected, prepare for redirection
+        if (orderType === "brochure") {
+          setTimeout(() => {
+            window.open("https://race3d-catalogv1.tiiny.site", "_blank")
+          }, 1500) // Short delay to allow the success modal to be seen
+        }
       } else {
         console.log("Error", data)
         setFormResult(data.message)
@@ -673,7 +681,18 @@ export default function LandingPage() {
                   ) : (
                     <>
                       <p className="mb-2">Thank you for your interest in our brochure!</p>
-                      <p>We'll send our latest catalog to your email shortly.</p>
+                      <p>
+                        You'll be redirected to our catalog shortly. You can also access it{" "}
+                        <a
+                          href="https://race3d-catalogv1.tiiny.site"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#A7BED3] underline hover:text-[#8DABC4]"
+                        >
+                          here
+                        </a>
+                        .
+                      </p>
                     </>
                   )}
                 </DialogDescription>
@@ -685,7 +704,9 @@ export default function LandingPage() {
                     className="bg-[#D8B4A0] hover:bg-[#C89F9C] text-white w-full rounded-md py-2.5"
                     onClick={() => setSuccessModalOpen(false)}
                   >
-                    <span className="font-medium">Close</span>
+                    <span className="font-medium">
+                      {orderType === "brochure" && isRedirecting ? "Redirecting to catalog..." : "Close"}
+                    </span>
                   </Button>
                 </motion.div>
               </div>

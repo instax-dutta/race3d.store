@@ -21,7 +21,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Race3D - Premium 3D Printing",
   description: "Experience the future of 3D-printed goods—where innovation meets timeless elegance.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -36,6 +35,3 @@ export default function RootLayout({
   )
 }
 
-
-
-import './globals.css'

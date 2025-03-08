@@ -1,10 +1,3 @@
-/**
- * Race3D Tailwind Color Configuration
- *
- * This file provides the Tailwind CSS configuration for the color schema
- * that can be directly copied into your tailwind.config.js file.
- */
-
 const tailwindConfig = {
   theme: {
     extend: {

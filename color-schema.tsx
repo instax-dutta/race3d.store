@@ -1,11 +1,3 @@
-/**
- * Race3D Color Schema
- *
- * This file provides a comprehensive color schema for the Race3D website
- * to maintain visual continuity between the landing page and showcase.
- */
-
-// Primary Colors
 const colors = {
   // Base Colors
   background: {
